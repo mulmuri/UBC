@@ -35,46 +35,61 @@ const PORT = 3000;
 server.set('view engine', 'ejs');
 server.set('views', "page");
 
-// body parsor
+// middleware
+const compression = require("compression");
+server.use(compression());
+
 server.use(express.static("page"));
+server.use(express.static("data/attachment"));
+server.use(express.static("data/hls_stream"));
+
+// express
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
+
 
 
 // session router
 
 
 
-
-
-
-/*
-
-// 인증 확인
-server.get('*', function(request, response, next) {
-    if (PORT) next('route'); // 정상적인 접근
-    else next(); // 로그인 페이지
-}, function(request, response) {
-    response.render('login');
-});
-
-server.post('/login_request', function(request, response) {
-    if (PORT) response.render('main')
-    else response.render('login'); // 로그인 실패 안내 추가해주면 좋음
+server.get('', function(request, response) {
+    response.redirect('/login');
 })
-
-*/
 
 server.get('/login', function(request, response) {
     response.render('login');
 })
+
+
+/*
+server.get('*', function(request, response, next) {
+    if (0) response.render('course', file_info);
+    else response.render('login');
+});
+*/
+/*
+server.get('*', function(request, response, next) {
+    if (0) next('route'); // 정상적인 접근
+    else next(); // 로그인 페이지
+}, function(request, response) {
+    response.redirect('login');
+});
+*/
+
+
+server.post('/login_request', function(request, response) {
+    if (1) response.redirect('course', file_info);
+    else response.render('login');
+})
+
 
 server.get('/course', function(request, response) {
     response.render('course', file_info);
 })
 
 server.get('/download/:id', function(request, response) {
-    response.download(`data/attachment/attachment${request.params.id}.png`);
+    response.download(`data/attachment/attachment${request.params.id}.pptx`);
 })
 
 
@@ -84,16 +99,13 @@ const writeCommentRouter = require("../src/write_comment.js");
 server.get('course/lecture/write_comment', writeCommentRouter);
 */
 
-server.get('', function(request, response) {
-    response.redirect('/course');
-})
 
-const hls_server = server.listen(PORT, () => console.log('server is running'))
 
 
 
 // hls streamer
-const video_streamer = require("./src/video_streamer.js");
 const HLS = require("hls-server");
-const video = require("fluent-ffmpeg/lib/options/video");
+const hls_server = server.listen(PORT, () => console.log('server is running'))
+const video_streamer = require("./src/video_streamer.js");
+const res = require("express/lib/response");
 new HLS(hls_server, video_streamer);
