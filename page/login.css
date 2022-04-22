@@ -1,0 +1,77 @@
+#main-body {
+  background-image: url("img/login.jpg");
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  height: 80vh;
+}
+
+@media screen and (min-width: 400px) {
+  .logintab {
+    width: 400px;
+  }
+}
+
+.logintab .top-content {
+  margin-bottom: -8px;
+}
+
+.logintab .top-content h6 {
+  font-size: 14px;
+  color: #fff;
+  background-color: rgba(250, 250, 250, 0.2);
+  padding: 40px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.logintab form {
+  background-color: rgba(250, 250, 250, 0.1);
+  padding: 60px 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.logintab form input {
+  width: 100%;
+  height: 40px;
+  background-color: rgba(250, 250, 250, 0.1);
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 13px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.logintab form input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  background-color: rgba(250, 250, 250, 0.1);
+}
+
+.logintab form::placeholder {
+  color: #fff;
+}
+
+.logintab form input::placeholder {
+  color: #fff;
+}
+
+.logintab form button {
+  margin-top: 10px;
+  background-color: #f5a425;
+  color: #fff;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  padding: 12px 20px;
+  display: inline-block;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}

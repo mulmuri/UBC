@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBC - Modernization of zbekistan Building Code System</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="all.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <script type="text/javascript" src="bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+</head>
+<body>
+    <div id="main-header">
+        <div class="title-first">
+            <span class="main-title title-1">Modernization of </span>
+        </div>
+        <div class="title-second">
+            <span class="main-title title-2">Uzbekistan Building Code(UBC) </span> <span class="main-title title-3">System</span>
+        </div>
+    </div>
+
+    <div id="main-body">
+        <div class="container logintab">
+            <div class="top-content">
+                <h6> Login with the password that you recived to view the Lecture</h6>
+            </div>
+            <form id="contact" action="" method="get">
+                <div class="row">
+                    <div class="col-md-12">
+                        <fieldset>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="Name" required="">
+                        </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                        <fieldset>
+                            <input name="email" type="text" class="form-control" id="email" placeholder="Password" required="">
+                        </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                        <fieldset>
+                            <button type="submit" id="form-submit" class="button">Login</button>
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="main-footer">
+        <div class="logo-container">
+            <% for (var i=1; i<=5; i++) { %>
+            <img class="logo" src="img/logo<%=i%>.png">
+            <% } %>
+        </div>            
+    </div>
+</body>
+</html>
+
+<!--
+    fading background image
+
+    id  login
+    pw  login
+-->

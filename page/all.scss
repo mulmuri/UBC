@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration : none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+//@import url(fontawesome.css);
+//@import url('<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">');
+//@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+#main-header {
+    height: 120px;
+    font-size: 30px;
+    padding-top: 15px;
+
+    @media screen and (max-width: 680px) {
+        & {
+            font-size: 24px;
+            padding-top: 18px;
+        }
+    }
+
+    @media screen and (max-width: 540px) {
+        & {
+            font-size: 21px;
+            padding-top: 21px;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        & {
+            font-size: 18px;
+            padding-top: 24px;
+        }
+    }
+
+    background-color: rgba(22,34,57,0.99);
+    color:  #f5a425;
+    text-align: center;
+    
+    .main-title {
+        font-family: 'Montserrat', sans-serif;
+    
+        font-weight: bolder;
+        color: white;
+    }
+}
+
+
+#main-footer {
+    height: 100px;
+    border-top: 2px solid rgba(22,34,57,0.99);
+    background-color: rgba(22,34,57,0.99);
+    width: 100%;
+
+    text-align: center;
+    
+    .logo {
+        height: 80px;
+        width: 80;
+        margin-right: 5px;
+        margin-left: 5px;
+
+        @media screen and (max-width: 640px) {
+            & {
+                height: 0px;
+                width: 0px;
+            }
+        }
+    }
+}

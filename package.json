@@ -1,0 +1,19 @@
+{
+  "name": "ubc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nulmuri",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "hls-server": "^1.5.0",
+    "lowdb": "^3.0.0"
+  }
+}

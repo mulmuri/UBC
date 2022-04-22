@@ -1,0 +1,71 @@
+body {
+    background-image: url('img/course.jpg');
+    background-size: cover;
+}
+
+
+
+.course-box {
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 300px;
+    height: 100%;
+
+    @media screen and (min-width: 992px) {
+        & {
+            width: 960px;
+        }
+    }
+
+    .accordion-item {
+        margin-top: 3px;
+    }
+
+    .course-header {
+        height: 100%;
+
+        .header-info {
+            display: block;
+            height: 20px;
+            overflow: scroll;
+            white-space: nowrap;
+
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+            &::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera*/
+            }
+        }
+        .header-
+    }
+
+    .course-body {
+        margin-top: 1px;
+        color: white;
+        background-color: rgba(250, 250, 250, 0.15);
+        padding: 10px;
+
+        .video-section {
+            background-color: black;
+            display: block;
+            margin: auto;
+        }
+
+        .attachment-section {
+            text-decoration : none;
+            color: #f5a425;
+            font-weight: bold;
+            margin-left: 30px;
+        }
+
+        .horizonal-line {
+            border-top: 1px solid white;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    }
+}
+
