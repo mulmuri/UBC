@@ -3,7 +3,6 @@ ROOT_DIR = process.cwd();
 const file_info = require("./data/file_info.json");
 
 
-
 // video compile
 const FILE_NUMBER = 1;
 
@@ -25,11 +24,12 @@ for (var num = 1; num < file_info.video.length; num++) {
 }
 
 
-
 // express
 const express = require('express');
 const server = express();
 const PORT = 3000;
+
+
 
 // ejs
 server.set('view engine', 'ejs');
@@ -38,74 +38,57 @@ server.set('views', "page");
 // middleware
 const compression = require("compression");
 server.use(compression());
+server.use(express.urlencoded({ extended: true }));
+server.use(express.json());
 
 server.use(express.static("page"));
 server.use(express.static("data/attachment"));
 server.use(express.static("data/hls_stream"));
 
-// express
-server.use(express.urlencoded({ extended: true }));
-server.use(express.json());
+
+// session
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
+
+server.use(session({
+  secret: 'session key',
+  resave: false,
+  saveUninitialized: true,
+  store:new FileStore({path: './data/sessions/'})
+}));
 
 
 
-// session router
+// main & login
+const login_router = require("./src/login.js");
+server.use('', login_router);
 
-
-
-server.get('', function(request, response) {
-    response.redirect('/login');
-})
-
-server.get('/login', function(request, response) {
-    response.render('login');
-})
-
-
-/*
 server.get('*', function(request, response, next) {
-    if (0) response.render('course', file_info);
-    else response.render('login');
-});
-*/
-/*
-server.get('*', function(request, response, next) {
-    if (0) next('route'); // 정상적인 접근
-    else next(); // 로그인 페이지
+    if (request.session.is_logined) next('route');
+    else next();
 }, function(request, response) {
     response.redirect('login');
 });
-*/
-
-
-server.post('/login_request', function(request, response) {
-    if (1) response.redirect('course', file_info);
-    else response.render('login');
-})
-
-
-server.get('/course', function(request, response) {
-    response.render('course', file_info);
-})
-
-server.get('/download/:id', function(request, response) {
-    response.download(`data/attachment/attachment${request.params.id}.pptx`);
-})
 
 
 
-/*
-const writeCommentRouter = require("../src/write_comment.js");
-server.get('course/lecture/write_comment', writeCommentRouter);
-*/
+// course
+server.get('/course', (request, response) => response.render('course', file_info));
+server.get('', (request, response) => response.redirect('course'));
 
+// course/download
+const download_router = require("./src/download.js")
+server.use('/course', download_router);
 
+// course/comment
+const comment = require("./src/comment.js");
+server.get('/course', comment);
 
 
 
 // hls streamer
 const HLS = require("hls-server");
-const hls_server = server.listen(PORT, () => console.log('server is running'))
+const hls_server = server.listen(PORT, () => console.log('server is running'));
 const video_streamer = require("./src/video_streamer.js");
 const res = require("express/lib/response");
 new HLS(hls_server, video_streamer);

@@ -1,7 +1,6 @@
 const fs = require("fs");
 
 video_streamer = {
-    flag : 1,
     provider: {
         exists: (req, cb) => {
             const ext = req.url.split('.').pop();

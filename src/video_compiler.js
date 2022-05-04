@@ -2,7 +2,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
 
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
-var video_compiler = {
+video_compiler = {
     unit : ffmpeg,
 
     use : function(input_dir, output_dir) {
