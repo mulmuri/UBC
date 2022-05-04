@@ -7,6 +7,19 @@ a {
     text-decoration : none;
 }
 
+button {
+    border-radius: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+input {
+    border-radius: 0px;
+    border: none;
+    outline: none;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 }

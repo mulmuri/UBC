@@ -15,7 +15,7 @@ router.post('/login_request', function(request, response) {
 
     if (auth_data.some(user => (user.name == name && user.password == password))) {
         request.session.is_logined = true;
-        request.session.name = name;
+        request.session.username = name;
         request.session.save(function() {
             response.redirect('course');
         });
