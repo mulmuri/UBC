@@ -82,7 +82,7 @@ server.use('/course', download_router);
 
 // course/comment
 const comment = require("./src/comment.js");
-server.get('/course', comment);
+server.use('/course', comment);
 
 
 

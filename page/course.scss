@@ -55,7 +55,7 @@ body {
             text-decoration : none;
             color: #f5a425;
             font-weight: bold;
-            margin-left: 30px;
+            margin: 30px;
         }
 
         .horizonal-line {
@@ -64,6 +64,34 @@ body {
             margin-right: 5px;
             margin-top: 15px;
             margin-bottom: 15px;
+        }
+
+        .content-section {
+            margin: 30px;
+
+            .submit-tab {
+
+                form {
+                    input {
+                        border: none;
+                        border-bottom: 1px solid white;
+                        background-color: transparent;
+                        color: white;
+                        border-radius: 0px;
+                        box-shadow: none;
+                        outline: none;
+    
+                        &:focus {
+                            box-shadow: none;
+                            border-bottom: 2px solid white;
+                        }
+                    }
+                }
+            }
+
+            .content-item {
+                display: hidden;
+            }
         }
     }
 }

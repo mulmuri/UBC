@@ -58,7 +58,7 @@ body {
   text-decoration: none;
   color: #f5a425;
   font-weight: bold;
-  margin-left: 30px;
+  margin: 30px;
 }
 
 .course-box .course-body .horizonal-line {
@@ -67,4 +67,27 @@ body {
   margin-right: 5px;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.course-box .course-body .content-section {
+  margin: 30px;
+}
+
+.course-box .course-body .content-section .submit-tab form input {
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 0px;
+  box-shadow: none;
+  outline: none;
+}
+
+.course-box .course-body .content-section .submit-tab form input:focus {
+  box-shadow: none;
+  border-bottom: 2px solid white;
+}
+
+.course-box .course-body .content-section .content-item {
+  display: hidden;
 }

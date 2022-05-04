@@ -58,10 +58,22 @@
                                     임의로 grid 구조 만들기 - 숙제
                                     random image 사용해서 프로필사진 만들기
                                 -->
-                                <div class="write-content">
-
+                                <div class="submit-tab">
+                                    <form id="content" method="post" action="/course/create/<%=i%>/0">
+                                        <div class="text-bar">
+                                            <fieldset>
+                                                <input name="content" type="text" class="form-control" id="" placeholder="ahhhh" required="">
+                                            </fieldset>
+                                        </div>
+                                        <div class="submit-bar">
+                                            <fieldset>
+                                                <button type="button" class="button button-cancle">Cancel</button>
+                                                <button type="submit" id="form-submit" class="button button-submit">Submit</button>
+                                            </fieldset>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="watch-content">
+                                <div class="content-item">
 
                                 </div>
                                 
