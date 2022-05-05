@@ -2,6 +2,6 @@
 
 /data/comment.json
 
-data/video
-data/hls_stream
-data/sessions
+/data/video
+/data/hls_stream
+/data/sessions
