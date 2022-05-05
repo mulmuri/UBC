@@ -28,8 +28,8 @@
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <% for (var i=1; i<=file_info.video.length-1; i++) { %>
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-heading<%= i %>">
-                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%= i %>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
+                    <h2 class="accordion-header" id="flush-heading<%=i%>">
+                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%=i%>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
                             onclick="streamVideo(<%=i%>)">
                             <div class="course-header w-90">
                                 <div class="header-info header-title header-belong">
@@ -42,7 +42,7 @@
                         </button>
                     </h2>
 
-                    <div id="flush-collapse<%= i %>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%= i %>" data-bs-parent="#accordionFlushExample">
+                    <div id="flush-collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%=i%>" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body course-body">
                             <video class="video-section ratio ratio-16x9 w-90" id="video<%=i%>" controls poster="./thumbnail/poster<%=i%>.png"></video>
                             <div class="horizonal-line"></div>
@@ -63,13 +63,13 @@
                                         <div class="text-bar">
                                             <fieldset>
                                                 <textarea name="content" type="text" class="form-control form-control-sm" placeholder="Add a comment..." required=""
-                                                rows="1" onkeyup="resize(this)"
+                                                rows="1" onkeyup="textareaResize(this)" onclick="toggleCommentBar(<%=i%>, true)"
                                                 ></textarea>
                                             </fieldset>
                                         </div>
-                                        <div class="submit-bar">
+                                        <div class="submit-bar" id="submit-bar-no<%=i%>" style="display: none;">
                                             <fieldset>
-                                                <button type="button" class="button button-cancle">Cancel</button>
+                                                <button type="button" class="button button-cancle" onclick="toggleCommentBar(<%=i%>, false)">Cancel</button>
                                                 <button type="submit" id="form-submit" class="button button-submit">Submit</button>
                                             </fieldset>
                                         </div>
@@ -85,22 +85,22 @@
                                     </div>
                                     <div class="content-button">
                                         <button class="content-recommend"><img src="./img/hand-thumbs-up.svg"></button>
-                                        <button class="content-reply">reply</button>
+                                        <button class="content-reply" onclick="toggleReplyBar(<%=i%>, 1, true)">reply</button>
                                     </div>
                                 </div>
 
-                                <div class="content-submit reply">
+                                <div class="content-submit reply" id="lecture-<%=i%>-comment-1" style="display: none;">
                                     <form id="content" method="post" action="/course/create/<%=i%>/0">
                                         <div class="text-bar">
                                             <fieldset>
                                                 <textarea name="content" type="text" class="form-control form-control-sm" placeholder="Add a comment..." required=""
-                                                rows="1" onkeyup="resize(this)"
+                                                rows="1" onkeyup="textareaResize(this)"
                                                 ></textarea>
                                             </fieldset>
                                         </div>
                                         <div class="submit-bar">
                                             <fieldset>
-                                                <button type="button" class="button button-cancle">Cancel</button>
+                                                <button type="button" class="button button-cancle" onclick="toggleReplyBar(<%=i%>, 1, false)">Cancel</button>
                                                 <button type="submit" id="form-submit" class="button button-submit">Submit</button>
                                             </fieldset>
                                         </div>
@@ -132,7 +132,6 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="./script/videoPlayer.js"></script>
     <script src="./script/commentManager.js"></script>
-    <script src="./script/textareaResizer.js"></script>
 
     <div id="main-footer">
         <div class="logo-container">
