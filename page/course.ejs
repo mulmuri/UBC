@@ -28,18 +28,19 @@
 
     <div id="main-body">
         <div class="course-box container">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush .open" id="accordionFlushExample">
                 <% for (var i=1; i<=file_info.video.length-1; i++) { %>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-heading<%=i%>">
                         <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%=i%>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
                             onclick="streamVideo(<%=i%>)">
                             <div class="course-header w-90">
-                                <div class="header-info header-title header-belong">
-                                    <%= file_info.video[i].title %>
+                                <div class="first-line">
+                                    <span class="header-title"><%= file_info.video[i].title %></span>
                                 </div>
-                                <div class="header-info header-name text-truncate">
-                                    <%= file_info.video[i].name %> &nbsp; | &nbsp; <%= file_info.video[i].belong %>
+                                <div class="second-line text-truncate">
+                                    <span class="header-name"><%= file_info.video[i].name %> &nbsp; | &nbsp;</span>
+                                    <span class="header-info"><%= file_info.video[i].belong %></span>
                                 </div>
                             </div>
                         </button>

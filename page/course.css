@@ -25,9 +25,12 @@ body {
   height: 100%;
 }
 
-.course-box .course-header .header-info {
+.course-box .course-header .first-line, .course-box .course-header .second-line {
   display: block;
   height: 20px;
+}
+
+.course-box .course-header .first-line {
   overflow: scroll;
   white-space: nowrap;
   -ms-overflow-style: none;
@@ -36,9 +39,22 @@ body {
   /* Firefox */
 }
 
-.course-box .course-header .header-info::-webkit-scrollbar {
+.course-box .course-header .first-line::-webkit-scrollbar {
   display: none;
   /* Chrome, Safari, Opera*/
+}
+
+.course-box .course-header .header-title {
+  font-size: 0.9rem;
+}
+
+.course-box .course-header .header-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.course-box .course-header .header-belong {
+  font-size: 1rem;
 }
 
 .course-box .course-body {

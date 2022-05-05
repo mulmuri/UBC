@@ -25,9 +25,12 @@ body {
     .course-header {
         height: 100%;
 
-        .header-info {
+        .first-line, .second-line {
             display: block;
             height: 20px;
+                      
+        }
+        .first-line {
             overflow: scroll;
             white-space: nowrap;
 
@@ -36,6 +39,17 @@ body {
             &::-webkit-scrollbar {
                 display: none; /* Chrome, Safari, Opera*/
             }
+        }
+
+        .header-title {
+            font-size: 0.9rem;
+        }
+        .header-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .header-belong {
+            font-size: 1rem;
         }
     }
 
