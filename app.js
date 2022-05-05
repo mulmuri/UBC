@@ -73,7 +73,11 @@ server.get('*', function(request, response, next) {
 
 
 // course
-server.get('/course', (request, response) => response.render('course', file_info));
+const comment = require("./src/dbController.js")
+server.get('/course', (request, response) => response.render('course', {
+    file_info,
+    comment
+}));
 server.get('', (request, response) => response.redirect('course'));
 
 // course/download
@@ -81,8 +85,8 @@ const download_router = require("./src/download.js")
 server.use('/course', download_router);
 
 // course/comment
-const comment = require("./src/comment.js");
-server.use('/course', comment);
+const commentRouter = require("./src/commentRouter.js");
+server.use('/course', commentRouter);
 
 
 
