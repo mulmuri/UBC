@@ -29,7 +29,7 @@
                 <% for (var i=1; i<=file_info.video.length-1; i++) { %>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-heading<%= i %>">
-                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%= i %>" aria-expanded="false" aria-controls="flush-collapse<%= i %>"
+                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%= i %>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
                             onclick="streamVideo(<%=i%>)">
                             <div class="course-header w-90">
                                 <div class="header-info header-title header-belong">
@@ -44,7 +44,7 @@
 
                     <div id="flush-collapse<%= i %>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%= i %>" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body course-body">
-                            <video class="video-section ratio ratio-16x9 w-90" id="video<%= i %>" controls></video>
+                            <video class="video-section ratio ratio-16x9 w-90" id="video<%=i%>" controls poster="./thumbnail/poster<%=i%>.png"></video>
                             <div class="horizonal-line"></div>
 
                             <a href="course/download/<%=i%>" class="attachment-section">
@@ -75,9 +75,6 @@
                                         </div>
                                     </form>
                                 </div>
-                                <!--
-                                    header : username / time 고로 직진
-                                -->
 
                                 <div class="content-item">
                                     <div class="content-name">
@@ -133,9 +130,9 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="video_player.js"></script>
-    <script src="comment_sender.js"></script>
-    <script src="comment_constructor.js"></script>
+    <script src="./script/videoPlayer.js"></script>
+    <script src="./script/commentManager.js"></script>
+    <script src="./script/textareaResizer.js"></script>
 
     <div id="main-footer">
         <div class="logo-container">
