@@ -2,14 +2,6 @@ const express = require('express');
 const router = express.Router();
 const comment = require("./commentController.js");
 
-
-
-router.post('/read/:courseNo', function(request, response) {
-    var courseNo = request.params.courseNo;
-    var data = comment.get(courseNo);
-    response.send(data);
-});
-
 router.post('/create/:courseNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;
     var parentNo = Number(request.params.parentNo);
@@ -20,22 +12,24 @@ router.post('/create/:courseNo/:parentNo', function(request, response) {
     response.redirect('/');
 });
 
-router.post('/update/:courseNo/:commentNo', function(request, response) {
+router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;
     var commentNo = request.params.commentNo;
+    var parentNo = request.params.parentNo;
     var author = request.session.username;
     var content = request.body.content;
 
-    comment.update(courseNo, commentNo, author, content);
+    comment.update(courseNo, commentNo, parentNo, author, content);
     response.redirect('/')
 });
 
-router.post('/delete/:courseNo/:commentNo', function(request, response) {
+router.post('/delete/:courseNo/:commentNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;
     var commentNo = request.params.commentNo;
+    var parentNo = request.params.parentNo;
     var author = request.session.username;
 
-    comment.delete(courseNo, commentNo, author);
+    comment.delete(courseNo, commentNo, parentNo, author);
     response.redirect('/')
 });
 

@@ -30,7 +30,6 @@ const server = express();
 const PORT = 3000;
 
 
-
 // ejs
 server.set('view engine', 'ejs');
 server.set('views', "page");
@@ -60,7 +59,6 @@ server.use(session({
 }));
 
 
-
 // main & login
 const login_router = require("./src/loginRouter.js");
 server.use('', login_router);
@@ -73,12 +71,14 @@ server.get('*', function(request, response, next) {
 });
 
 
+// comment
+const commentObj = require("./src/commentController.js");
+const commentInfo = commentObj.read();
 
 // course
-const comment = require("./src/commentController.js")
 server.get('/course', (request, response) => response.render('course', {
     file_info,
-    comment
+    commentInfo
 }));
 server.get('', (request, response) => response.redirect('course'));
 
@@ -87,7 +87,6 @@ const download_router = require("./src/downloadRouter.js")
 const commentRouter = require("./src/commentRouter.js");
 server.use('/course', download_router);
 server.use('/course', commentRouter);
-
 
 
 // hls streamer

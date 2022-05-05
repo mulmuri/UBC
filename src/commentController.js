@@ -5,6 +5,7 @@ const adapter = new FileSync(`./data/comment.json`);
 db = low(adapter);
 
 db.defaults({
+    0: {},
     1: {comment: []},
     2: {comment: []},
     3: {comment: []},
@@ -17,7 +18,7 @@ db.defaults({
     10: {comment: []}
 }).write();
 
-cnt = [0,1,1,1,1,1,1,1,1,1,1];
+cnt = [0, 0,0,0,0,0, 0,0,0,0,0];
 
 
 
@@ -30,35 +31,68 @@ comment = {
     },
 
     read : function() {
-        return db.value();
+        return Object.values(db.value());
     },
 
     create : function(courseNo, parentNo, author, content) {
 
-        db.get(courseNo).get("comment")
-        .push({
-            contentNo: cnt[Number(courseNo)]++,
-            parentNo: parentNo,
-            author: author,
-            content: content
-        }).write();
+        if (parentNo == 0) {
+            db.get(courseNo).get("comment")
+            .push({
+                commentNo: ++cnt[Number(courseNo)],
+                parentNo: parentNo,
+                author: author,
+                content: content,
+
+                reply: []
+            }).write();
+
+        } else {
+            db.get(courseNo).get("comment")
+            .find({commentNo: parentNo}).get("reply")
+            .push({
+                commentNo: ++cnt[Number(courseNo)],
+                parentNo: parentNo,
+                author: author,
+                content: content
+            }).write();
+        }
+
     },
 
-    update : function(courseNo, commentNo, author, content) {
+    update : function(courseNo, commentNo, parentNo, author, content) {
         if (this.authCheck(courseNo, commentNo, author) === false) return;
 
-        db.get(courseNo)
-        .find({commentNo: commentNo})
-        .assign({content: content})
-        .write();
+        if (parentNo == 0) {
+            db.get(courseNo).get("comment")
+           .find({commentNo: commentNo})
+           .assign({content: content})
+           .write();
+
+        } else {
+            db.get(courseNo).get("comment")
+            .find({commentNo: parentNo}).gt("reply")
+            .assign({content: content})
+            .write();
+        }
+        
     },
 
-    delete : function(courseNo, commentNo, author) {
+    delete : function(courseNo, commentNo, parentNo, author) {
         if (this.authCheck(courseNo, commentNo, author) === false) return;
 
-        db.get(courseNo)
-        .remove({commentNo: commentNo})
-        .write();
+        if (parentNo == 0) {
+            db.get(courseNo).get("comment")
+            .remove({commentNo: commentNo})
+            .write();
+
+        } else {
+            db.get(courseNo).get("comment")
+            .find({commentNo: parentNo}).get("reply")
+            .remove({commentNo: commentNo})
+            .write();
+        }
+
     },
 
 }
