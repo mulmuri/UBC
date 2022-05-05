@@ -47,22 +47,24 @@
                             <video class="video-section ratio ratio-16x9 w-90" id="video<%= i %>" controls></video>
                             <div class="horizonal-line"></div>
 
-                            <a href="course/download/<%=i%>" class="attachment-section"> 
-                                <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                            <a href="course/download/<%=i%>" class="attachment-section">
+                                <i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
+                                    </svg>
+                                </i>
                                 <span> download pdf </span>
                             </a>
                             <div class="horizonal-line"></div>
                             <div class="content-section">
-                                <!--
-                                    write-content / watch-content 로 해놓고 나중에 좋은 이름 떠오르면 수정하기
-                                    임의로 grid 구조 만들기 - 숙제
-                                    random image 사용해서 프로필사진 만들기
-                                -->
-                                <div class="submit-tab">
+
+                                <div class="content-submit">
                                     <form id="content" method="post" action="/course/create/<%=i%>/0">
                                         <div class="text-bar">
                                             <fieldset>
-                                                <input name="content" type="text" class="form-control" id="" placeholder="ahhhh" required="">
+                                                <textarea name="content" type="text" class="form-control form-control-sm" placeholder="Add a comment..." required=""
+                                                rows="1" onkeyup="resize(this)"
+                                                ></textarea>
                                             </fieldset>
                                         </div>
                                         <div class="submit-bar">
@@ -73,20 +75,35 @@
                                         </div>
                                     </form>
                                 </div>
+                                <!--
+                                    header : username / time 고로 직진
+                                -->
+
                                 <div class="content-item">
+                                    <div class="content-name">
+                                        <span class="badge rounded-pill bg-secondary">Kwon, O-Chel</span>
+                                    </div>
+                                    <div class="content-text">
+                                        hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell
+                                    </div>
+                                    <div class="content-button">
+                                        <button class="content-recommend"><img src="./img/hand-thumbs-up.svg"></button>
+                                        <button class="content-reply">reply</button>
+                                    </div>
+                                </div>
+                                <div class="content-item reply">
+                                    <div class="content-name">
+                                        <span class="badge rounded-pill bg-secondary">Kwon, O-Chel</span>
+                                    </div>
+                                    <div class="content-text">
+                                        hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell hello world welcome to hell
+                                    </div>
+                                    <div class="content-button">
+                                        <button class="content-recommend"><img src="./img/hand-thumbs-up.svg"></button>
+                                        <button class="content-reply">reply</button>
+                                    </div>
+                                </div>
 
-                                </div>
-                                
-                                <div class="content-header">
-
-                                </div>
-                                <div class="content-main">
-
-                                </div>
-                                <div class="content-footer">
-                                    <div class="content-recommend"></div>
-                                    <div class="content-reply"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,6 +116,7 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="video_player.js"></script>
     <script src="comment_sender.js"></script>
+    <script src="comment_constructor.js"></script>
 
     <div id="main-footer">
         <div class="logo-container">
