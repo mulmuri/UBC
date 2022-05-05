@@ -1,12 +1,7 @@
 /node_modules
 
+/data/comment.json
 
-/data
-
-
-# /data/comment.json
-# /src/test.txt
-# 
-# /data/video
-# /data/hls_stream
-# /data/sessions
+data/video
+data/hls_stream
+data/sessions
