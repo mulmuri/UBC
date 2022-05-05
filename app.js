@@ -6,7 +6,7 @@ const file_info = require("./data/file_info.json");
 // video compile
 const FILE_NUMBER = 1;
 
-const video_compiler = require("./src/video_compiler.js");
+const video_compiler = require("./src/videoCompiler.js");
 const fs = require('fs');
 
 for (var num = 1; num < file_info.video.length; num++) {
@@ -37,7 +37,9 @@ server.set('views', "page");
 
 // middleware
 const compression = require("compression");
+const expressSanitizer = require('express-sanitizer');
 server.use(compression());
+server.use(expressSanitizer());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
@@ -60,7 +62,7 @@ server.use(session({
 
 
 // main & login
-const login_router = require("./src/login.js");
+const login_router = require("./src/loginRouter.js");
 server.use('', login_router);
 
 server.get('*', function(request, response, next) {
@@ -73,19 +75,17 @@ server.get('*', function(request, response, next) {
 
 
 // course
-const comment = require("./src/dbController.js")
+const comment = require("./src/commentController.js")
 server.get('/course', (request, response) => response.render('course', {
     file_info,
     comment
 }));
 server.get('', (request, response) => response.redirect('course'));
 
-// course/download
-const download_router = require("./src/download.js")
-server.use('/course', download_router);
-
-// course/comment
+// download & comment router
+const download_router = require("./src/downloadRouter.js")
 const commentRouter = require("./src/commentRouter.js");
+server.use('/course', download_router);
 server.use('/course', commentRouter);
 
 
@@ -93,6 +93,6 @@ server.use('/course', commentRouter);
 // hls streamer
 const HLS = require("hls-server");
 const hls_server = server.listen(PORT, () => console.log('server is running'));
-const video_streamer = require("./src/video_streamer.js");
+const video_streamer = require("./src/videoStreamer.js");
 const res = require("express/lib/response");
 new HLS(hls_server, video_streamer);
