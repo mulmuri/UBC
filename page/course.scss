@@ -27,8 +27,7 @@ body {
 
         .first-line, .second-line {
             display: block;
-            height: 20px;
-                      
+            height: 20px;                      
         }
         .first-line {
             overflow: scroll;
@@ -40,16 +39,19 @@ body {
                 display: none; /* Chrome, Safari, Opera*/
             }
         }
+        .second-line {
+            margin-top: 6px;
+        }
 
         .header-title {
             font-size: 0.9rem;
         }
         .header-name {
-            font-size: 1.1rem;
+            font-size: 1.0rem;
             font-weight: 600;
         }
         .header-belong {
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
     }
 
@@ -142,8 +144,6 @@ body {
                 padding-left: 15px;
                 border-left: 1px solid white;
 
-                //display: inline;
-
                 .content-name {
                     vertical-align: top;
                     height: 28px;
@@ -159,10 +159,10 @@ body {
                     button {
                         background: transparent;
                         text-transform: uppercase;
-    
-                        &:hover {
-                            background: gray;
-                        }
+                        border-radius: 50%;
+
+                        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+                        font-family: 'Roboto', sans-serif;
     
                         .content-recommend {
 

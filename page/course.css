@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 body {
   background-image: url("img/course.jpg");
   background-size: cover;
@@ -44,17 +45,21 @@ body {
   /* Chrome, Safari, Opera*/
 }
 
+.course-box .course-header .second-line {
+  margin-top: 6px;
+}
+
 .course-box .course-header .header-title {
   font-size: 0.9rem;
 }
 
 .course-box .course-header .header-name {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: 600;
 }
 
 .course-box .course-header .header-belong {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .course-box .course-body {
@@ -161,10 +166,8 @@ body {
 .course-box .course-body .content-section .content-item .content-button button {
   background: transparent;
   text-transform: uppercase;
-}
-
-.course-box .course-body .content-section .content-item .content-button button:hover {
-  background: gray;
+  border-radius: 50%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .course-box .course-body .content-section .content-item .content-button button .content-recommend img {
