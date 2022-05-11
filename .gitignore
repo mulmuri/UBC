@@ -1,7 +1,9 @@
-/node_modules
+/node_modules/
 
 /data/comment.json
 /data/hls_stream/*/**
+!/data/hls_stream/*/.keep
 /data/video/**
-/data/sessions
+!/data/video/.keep
+/data/sessions/
 
