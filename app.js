@@ -78,7 +78,8 @@ const commentInfo = commentObj.read();
 // course
 server.get('/course', (request, response) => response.render('course', {
     file_info,
-    commentInfo
+    commentInfo,
+    open: false
 }));
 server.get('', (request, response) => response.redirect('course'));
 

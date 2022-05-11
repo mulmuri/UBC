@@ -7,7 +7,14 @@
         "parentNo": 0,
         "author": "ubc",
         "content": "asdf",
-        "reply": []
+        "reply": [
+          {
+            "commentNo": 1,
+            "parentNo": 1,
+            "author": "ubc",
+            "content": "asdf"
+          }
+        ]
       }
     ]
   },

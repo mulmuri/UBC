@@ -13,7 +13,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <script>
-        console.log( <%= commentInfo[1].length %>)
+        console.log(<%= commentInfo[1].length %>)
     </script>
 </head>
 <body>
@@ -28,12 +28,12 @@
 
     <div id="main-body">
         <div class="course-box container">
-            <div class="accordion accordion-flush .open" id="accordionFlushExample">
+            <div class="accordion show accordion-flush" id="accordionFlushExample">
                 <% for (var i=1; i<=file_info.video.length-1; i++) { %>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-heading<%=i%>">
                         <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%=i%>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
-                            onclick="streamVideo(<%=i%>)">
+                            onclick="streamVideo(<%=i%>); scrollToCard(<%=i%>);">
                             <div class="course-header w-90">
                                 <div class="first-line">
                                     <span class="header-title"><%= file_info.video[i].title %></span>
@@ -46,6 +46,13 @@
                         </button>
                     </h2>
 
+<!--
+    <% if (1) { %>
+        class="collapse.show"
+    <% } else { %>
+        class="collapse"
+    <% } %>>
+-->
                     <div id="flush-collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%=i%>" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body course-body">
                             <video class="video-section ratio ratio-16x9 w-90" id="video<%=i%>" controls poster="./thumbnail/poster<%=i%>.png"></video>
@@ -93,7 +100,7 @@
                                         <form method="post" action="/course/update">
                                             <button class="content-update rounded-pill" type="submit">update</button>
                                         </form>
-                                        <form method="post" action="/course/update">
+                                        <form method="post" action="/course/delete">
                                             <button class="content-delete rounded-pill" type="submit">delete</button>
                                         </form>
                                     </div>
@@ -110,7 +117,9 @@
                                         </div>
                                         <div class="submit-bar">
                                             <fieldset>
-                                                <button type="button" class="button button-cancle" onclick="toggleReplyBar(<%=i%>, <%=j%>, false)">Cancel</button>
+                                                <button type="button" class="button button-cancle" 
+                                                data-bs-toggle="collapse"
+                                                onclick="toggleReplyBar(<%=i%>, <%=j%>, false)">Cancel</button>
                                                 <button type="submit" id="form-submit" class="button button-submit">Submit</button>
                                             </fieldset>
                                         </div>
@@ -141,6 +150,7 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="./script/videoPlayer.js"></script>
     <script src="./script/commentManager.js"></script>
+    <script src="./script/scrollToggler.js"></script>
     <script>
     </script>
 
