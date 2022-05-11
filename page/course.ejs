@@ -57,7 +57,7 @@
                                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
                                     </svg>
                                 </i>
-                                <span> download pdf </span>
+                                <span> download ppt </span>
                             </a>
                             <div class="horizonal-line"></div>
                             <div class="content-section">
@@ -89,7 +89,13 @@
                                         <%- commentInfo[i].comment[j].content.replace(/\n/g, '<br/>') %>
                                     </div>
                                     <div class="content-button">
-                                        <button class="content-reply" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
+                                        <button class="content-create rounded-pill" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
+                                        <form method="post" action="/course/update">
+                                            <button class="content-update rounded-pill" type="submit">update</button>
+                                        </form>
+                                        <form method="post" action="/course/update">
+                                            <button class="content-delete rounded-pill" type="submit">delete</button>
+                                        </form>
                                     </div>
                                 </div>
 

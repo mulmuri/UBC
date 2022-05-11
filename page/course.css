@@ -166,7 +166,7 @@ body {
 .course-box .course-body .content-section .content-item .content-button button {
   background: transparent;
   text-transform: uppercase;
-  border-radius: 50%;
+  margin-right: 10px;
   font-family: 'Roboto', sans-serif;
 }
 

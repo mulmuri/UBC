@@ -9,7 +9,7 @@ const FILE_NUMBER = 1;
 const video_compiler = require("./src/videoCompiler.js");
 const fs = require('fs');
 
-for (var num = 1; num < file_info.video.length; num++) {
+for (var num = 1; num <= file_info.video.length; num++) {
     let videoDir = `data/video/video${num}.mov`;
     let compiledDir = `data/hls_stream/video${num}/output.m3u8`;
 
@@ -55,7 +55,7 @@ server.use(session({
   secret: 'session key',
   resave: false,
   saveUninitialized: true,
-  store:new FileStore({path: './data/sessions/'})
+  store: new FileStore({path: './data/sessions/'})
 }));
 
 
