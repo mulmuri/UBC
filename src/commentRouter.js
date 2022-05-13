@@ -34,6 +34,7 @@ router.post('/delete/:courseNo/:commentNo/:parentNo', function(request, response
     var author = request.session.username;
 
     comment.delete(courseNo, commentNo, parentNo, author);
+    console.log(courseNo)
     request.session.courseNo = Number(courseNo);
     response.redirect('/');
 });

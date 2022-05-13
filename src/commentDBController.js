@@ -24,11 +24,18 @@ cnt = [0, 0,0,0,0,0, 0,0,0,0,0];
 
 comment = {
 
-    authCheck : function(courseNo, commentNo, author) {
-        if (db.get(courseNo).get("comment").find({commentNo: commentNo}).value() == undefined) return false;
-        if (db.get(courseNo).get("comment").find({commentNo: commentNo}).get("author").value() != author) return false;
+    authCheck : function(courseNo, commentNo, parentNo, author) {
+        if (parentNo == 0) {
+            if (db.get(courseNo).get("comment").find({commentNo: commentNo}).value() == undefined) return false;
+            if (db.get(courseNo).get("comment").find({commentNo: commentNo}).get("author").value() != author) return false;
+        } else {
+            if (db.get(courseNo).get("comment").find({commentNo: parentNo}).value() == undefined) return false;
+            if (db.get(courseNo).get("comment").find({commentNo: parentNo}).get("reply").find({commentNo: commentNo}).value() == undefined) return false;
+            if (db.get(courseNo).get("comment").find({commentNo: parentNo}).get("reply").find({commentNo: commentNo}).get("author").value() != author) return false;
+        }
 
         return true;
+
     },
 
     read : function() {
@@ -62,7 +69,7 @@ comment = {
     },
 
     update : function(courseNo, commentNo, parentNo, author, content) {
-        if (this.authCheck(courseNo, commentNo, author) === false) return;
+        if (this.authCheck(courseNo, commentNo, parentNo, author) === false) return;
 
         if (parentNo == 0) {
             db.get(courseNo).get("comment")
@@ -80,7 +87,7 @@ comment = {
     },
 
     delete : function(courseNo, commentNo, parentNo, author) {
-        if (this.authCheck(courseNo, commentNo, author) === false) return;
+        if (this.authCheck(courseNo, commentNo, parentNo, author) === false) return;
 
         if (parentNo == 0) {
             db.get(courseNo).get("comment")

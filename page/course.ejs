@@ -89,10 +89,6 @@
                                         <form>
                                             <button class="content-create rounded-pill" type="button" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
                                         </form>
-
-                                        <form method="post" action="/course/update/<%=i%>/0">
-                                            <button class="content-update rounded-pill" type="submit">update</button>
-                                        </form>
                                         <form method="post" action="/course/delete/<%=i%>/<%=commentInfo[i].comment[j].commentNo%>/0">
                                             <button class="content-delete rounded-pill" type="submit">delete</button>
                                         </form>
@@ -126,6 +122,14 @@
                                         </div>
                                         <div class="content-text">
                                             <%- commentInfo[i].comment[j].reply[k].content.replace(/\n/g, '<br/>') %>
+                                        </div>
+                                        <div class="content-button">
+                                            <form>
+                                                <button class="content-create rounded-pill" type="button" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
+                                            </form>
+                                            <form method="post" action="/course/delete/<%=i%>/<%=commentInfo[i].comment[j].reply[k].commentNo%>/<%=commentInfo[i].comment[j].commentNo%>">
+                                                <button class="content-delete rounded-pill" type="submit">delete</button>
+                                            </form>
                                         </div>
                                     </div>
                                     <% } %>
