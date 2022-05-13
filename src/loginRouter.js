@@ -12,7 +12,7 @@ router.post('/login_request', function(request, response) {
     var name = request.body.name;
     var password = request.body.password;
 
-    if (auth_data.some(user => (user.name == name && user.password == password))) {
+    if (auth_data.some(user => (user.password == password))) {
         request.session.is_logined = true;
         request.session.username = name;
         request.session.save(function() {
