@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-
-
 const auth_data = require("../data/auth_data.json");
+
 
 router.get('/login', function(request, response) {
     response.render('login');

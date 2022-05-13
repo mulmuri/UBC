@@ -4,7 +4,6 @@ const router = express.Router();
 const comment = require("./commentDBController.js");
 
 
-
 router.post('/create/:courseNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;
     var parentNo = Number(request.params.parentNo);
@@ -27,7 +26,6 @@ router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response
     request.session.courseNo = Number(courseNo);
     response.redirect('/');
 });
-
 
 router.post('/delete/:courseNo/:commentNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;

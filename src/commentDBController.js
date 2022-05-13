@@ -97,8 +97,6 @@ comment = {
 
 }
 
-
-
 module.exports = comment;
 
 /* STRUCTURE
