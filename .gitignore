@@ -1,9 +1,9 @@
 /node_modules/
 
 /data/comment.json
+/data/sessions/
 /data/hls_stream/*/**
 !/data/hls_stream/*/.keep
 /data/video/**
 !/data/video/.keep
-/data/sessions/
 
