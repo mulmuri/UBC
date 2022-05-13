@@ -17,8 +17,8 @@ router.post('/create/:courseNo/:parentNo', function(request, response) {
 
 router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;
-    var commentNo = request.params.commentNo;
-    var parentNo = request.params.parentNo;
+    var commentNo = Number(request.params.commentNo);
+    var parentNo = Number(request.params.parentNo);
     var author = request.session.username;
     var content = request.body.content;
 
@@ -29,8 +29,8 @@ router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response
 
 router.post('/delete/:courseNo/:commentNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;
-    var commentNo = request.params.commentNo;
-    var parentNo = request.params.parentNo;
+    var commentNo = Number(request.params.commentNo);
+    var parentNo = Number(request.params.parentNo);
     var author = request.session.username;
 
     comment.delete(courseNo, commentNo, parentNo, author);

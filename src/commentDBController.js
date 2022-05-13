@@ -25,8 +25,9 @@ cnt = [0, 0,0,0,0,0, 0,0,0,0,0];
 comment = {
 
     authCheck : function(courseNo, commentNo, author) {
-        if (db.get(courseNo).find({commentNo: commentNo}).value() == undefined) return false;
-        if (db.get(courseNo).find({commentNo: commentNo}).get("author").value() != author) return false;
+        if (db.get(courseNo).get("comment").find({commentNo: commentNo}).value() == undefined) return false;
+        if (db.get(courseNo).get("comment").find({commentNo: commentNo}).get("author").value() != author) return false;
+
         return true;
     },
 
@@ -71,7 +72,7 @@ comment = {
 
         } else {
             db.get(courseNo).get("comment")
-            .find({commentNo: parentNo}).gt("reply")
+            .find({commentNo: parentNo}).get("reply")
             .assign({content: content})
             .write();
         }

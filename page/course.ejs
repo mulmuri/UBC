@@ -45,7 +45,7 @@
                     </h2>
                     <div id="flush-collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%=i%>" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body course-body">
-                            <video class="video-section ratio ratio-16x9 w-90" id="video<%=i%>" controls poster="./thumbnail/poster<%=i%>.png"></video>
+                            <video class="video-section ratio ratio-16x9 w-90" id="video<%=i%>" controls poster="./thumbnail/poster<%=i%>.png"> !@#@!#@!#!@#!@#!@#!@</video>
                             <div class="horizonal-line"></div>
 
                             <a href="course/download/<%=i%>" class="attachment-section">
@@ -86,11 +86,14 @@
                                         <%- commentInfo[i].comment[j].content.replace(/\n/g, '<br/>') %>
                                     </div>
                                     <div class="content-button">
-                                        <button class="content-create rounded-pill" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
-                                        <form method="post" action="/course/update">
+                                        <form>
+                                            <button class="content-create rounded-pill" type="button" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
+                                        </form>
+
+                                        <form method="post" action="/course/update/<%=i%>/0">
                                             <button class="content-update rounded-pill" type="submit">update</button>
                                         </form>
-                                        <form method="post" action="/course/delete">
+                                        <form method="post" action="/course/delete/<%=i%>/<%=commentInfo[i].comment[j].commentNo%>/0">
                                             <button class="content-delete rounded-pill" type="submit">delete</button>
                                         </form>
                                     </div>
