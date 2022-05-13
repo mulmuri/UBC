@@ -12,10 +12,8 @@
     <script type="text/javascript" src="bootstrap/dist/js/bootstrap.bundle.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <script>
-        console.log(<%= commentInfo[1].length %>)
-    </script>
 </head>
+
 <body>
     <div id="main-header">
         <div class="title-first">
@@ -28,11 +26,11 @@
 
     <div id="main-body">
         <div class="course-box container">
-            <div class="accordion show accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
                 <% for (var i=1; i<=file_info.video.length-1; i++) { %>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-heading<%=i%>">
-                        <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%=i%>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
+                        <button class="accordion-button collapsed shadow-none course-box-tab" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%=i%>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
                             onclick="streamVideo(<%=i%>); scrollToCard(<%=i%>);">
                             <div class="course-header w-90">
                                 <div class="first-line">
@@ -45,14 +43,6 @@
                             </div>
                         </button>
                     </h2>
-
-<!--
-    <% if (1) { %>
-        class="collapse.show"
-    <% } else { %>
-        class="collapse"
-    <% } %>>
--->
                     <div id="flush-collapse<%=i%>" class="accordion-collapse collapse" aria-labelledby="flush-heading<%=i%>" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body course-body">
                             <video class="video-section ratio ratio-16x9 w-90" id="video<%=i%>" controls poster="./thumbnail/poster<%=i%>.png"></video>
@@ -152,6 +142,25 @@
     <script src="./script/commentManager.js"></script>
     <script src="./script/scrollToggler.js"></script>
     <script>
+        //window.addEventListener('DOMContentLoaded', function() {
+        //    window.scrollTo({
+        //        left: 0,
+        //        top: 166,
+        //        behavior: "smooth"
+        //    })
+        //})
+
+        function setFocusFunction() {
+            console.log(<%=courseNo%>)
+            setTimeout(function() {
+                var targetNo = <%=courseNo%>
+                if (targetNo == 0) return;
+                document.getElementsByClassName('course-box-tab')[targetNo+1].click();
+            }, 300)
+        }
+
+        window.addEventListener('DOMContentLoaded', setFocusFunction);
+
     </script>
 
     <div id="main-footer">

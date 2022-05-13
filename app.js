@@ -10,7 +10,7 @@ const video_compiler = require("./src/videoCompiler.js");
 const fs = require('fs');
 
 for (var num = 1; num <= file_info.video.length; num++) {
-    let videoDir = `data/video/video${num}.mov`;
+    let videoDir = `data/video/video${num}.mp4`;
     let compiledDir = `data/hls_stream/video${num}/output.m3u8`;
 
     fs.exists(videoDir, function(exist) {
@@ -71,16 +71,11 @@ server.get('*', function(request, response, next) {
 });
 
 
-// comment
-const commentObj = require("./src/commentController.js");
-const commentInfo = commentObj.read();
+
 
 // course
-server.get('/course', (request, response) => response.render('course', {
-    file_info,
-    commentInfo,
-    open: false
-}));
+const courseRotuer = require("./src/courseRouter");
+server.use('/course', courseRotuer);
 server.get('', (request, response) => response.redirect('course'));
 
 // download & comment router

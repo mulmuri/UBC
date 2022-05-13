@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const comment = require("./commentController.js");
+
+const comment = require("./commentDBController.js");
+
 
 
 router.post('/create/:courseNo/:parentNo', function(request, response) {
@@ -8,11 +10,11 @@ router.post('/create/:courseNo/:parentNo', function(request, response) {
     var parentNo = Number(request.params.parentNo);
     var author = request.session.username;
     var content = request.body.content;
-
+    
     comment.create(courseNo, parentNo, author, content);
+    request.session.courseNo = Number(courseNo);
     response.redirect('/');
 });
-
 
 router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response) {
     var courseNo = request.params.courseNo;
@@ -22,7 +24,8 @@ router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response
     var content = request.body.content;
 
     comment.update(courseNo, commentNo, parentNo, author, content);
-    response.redirect('/')
+    request.session.courseNo = Number(courseNo);
+    response.redirect('/');
 });
 
 
@@ -33,7 +36,8 @@ router.post('/delete/:courseNo/:commentNo/:parentNo', function(request, response
     var author = request.session.username;
 
     comment.delete(courseNo, commentNo, parentNo, author);
-    response.redirect('/')
+    request.session.courseNo = Number(courseNo);
+    response.redirect('/');
 });
 
 
