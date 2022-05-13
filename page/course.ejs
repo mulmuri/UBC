@@ -54,7 +54,7 @@
                                         <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
                                     </svg>
                                 </i>
-                                <span> download ppt </span>
+                                <span> download pdf </span>
                             </a>
                             <div class="horizonal-line"></div>
                             <div class="content-section">
@@ -80,17 +80,21 @@
                                 <% for (var j=0; j<= commentInfo[i].comment.length-1; j++) { %>
                                 <div class="content-item">
                                     <div class="content-name">
-                                        <span class="badge rounded-pill bg-secondary"><%= commentInfo[i].comment[j].author %></span>
+                                        <span class=""><%= commentInfo[i].comment[j].author %></span>
                                     </div>
                                     <div class="content-text">
                                         <%- commentInfo[i].comment[j].content.replace(/\n/g, '<br/>') %>
                                     </div>
                                     <div class="content-button">
                                         <form>
-                                            <button class="content-create rounded-pill" type="button" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
+                                            <button class="content-create rounded-pill" type="button" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">
+                                                <span>reply</span>
+                                            </button>
                                         </form>
                                         <form method="post" action="/course/delete/<%=i%>/<%=commentInfo[i].comment[j].commentNo%>/0">
-                                            <button class="content-delete rounded-pill" type="submit">delete</button>
+                                            <button class="content-delete" type="submit">
+                                                <span>delete</span>
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -106,7 +110,7 @@
                                         </div>
                                         <div class="submit-bar">
                                             <fieldset>
-                                                <button type="button" class="button button-cancle" 
+                                                <button type="button" class="button button-cancel" 
                                                 data-bs-toggle="collapse"
                                                 onclick="toggleReplyBar(<%=i%>, <%=j%>, false)">Cancel</button>
                                                 <button type="submit" id="form-submit" class="button button-submit">Submit</button>
@@ -118,17 +122,22 @@
                                     <% for (var k=0; k<= commentInfo[i].comment[j].reply.length-1; k++) { %>
                                     <div class="content-item reply">
                                         <div class="content-name">
-                                            <span class="badge rounded-pill bg-secondary"><%= commentInfo[i].comment[j].reply[k].author %></span>
+                                            <span class=""><%= commentInfo[i].comment[j].reply[k].author %></span>
                                         </div>
                                         <div class="content-text">
                                             <%- commentInfo[i].comment[j].reply[k].content.replace(/\n/g, '<br/>') %>
                                         </div>
                                         <div class="content-button">
                                             <form>
-                                                <button class="content-create rounded-pill" type="button" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">reply</button>
+                                                <button class="content-create" type="button" onclick="toggleReplyBar(<%=i%>, <%=j%>, true)">
+                                                    <span>reply</span>
+
+                                                </button>
                                             </form>
                                             <form method="post" action="/course/delete/<%=i%>/<%=commentInfo[i].comment[j].reply[k].commentNo%>/<%=commentInfo[i].comment[j].commentNo%>">
-                                                <button class="content-delete rounded-pill" type="submit">delete</button>
+                                                <button class="content-delete" type="submit">
+                                                    <span>delete</span>
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
@@ -149,14 +158,6 @@
     <script src="./script/commentManager.js"></script>
     <script src="./script/scrollToggler.js"></script>
     <script>
-        //window.addEventListener('DOMContentLoaded', function() {
-        //    window.scrollTo({
-        //        left: 0,
-        //        top: 166,
-        //        behavior: "smooth"
-        //    })
-        //})
-
         function setFocusFunction() {
             console.log(<%=courseNo%>)
             setTimeout(function() {

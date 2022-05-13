@@ -12,7 +12,9 @@ button {
     outline: none;
     box-shadow: none;
     border: none;
+    background-color: transparent;
 }
+
 
 input {
     border-radius: 0px;
@@ -20,14 +22,28 @@ input {
     outline: none;
 }
 
+form {
+    background-color: transparent;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: rgba(22,34,57,0.99);
 }
 
+.custom-bg-1 {
+    background-color: #f5a425;
+}
+.custom-color-1 {
+    color: #f5a425 !important;
+}
+
+
 //@import url(fontawesome.css);
 //@import url('<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">');
 //@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 #main-header {
     height: 120px;

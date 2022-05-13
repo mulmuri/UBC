@@ -5,37 +5,12 @@ $accordion-color:                           white;
 $accordion-button-color:                    white;
 $accordion-button-active-color:             #f5a425;
 
-/*
-$accordion-padding-y:                     1rem;
-$accordion-padding-x:                     1.25rem;
-$accordion-color:                         $body-color;
-$accordion-bg:                            $body-bg;
-$accordion-border-width:                  $border-width;
-$accordion-border-color:                  rgba($black, .125);
-$accordion-border-radius:                 $border-radius;
-$accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width);
-
-$accordion-body-padding-y:                $accordion-padding-y;
-$accordion-body-padding-x:                $accordion-padding-x;
-
-$accordion-button-padding-y:              $accordion-padding-y;
-$accordion-button-padding-x:              $accordion-padding-x;
-$accordion-button-color:                  $accordion-color;
-$accordion-button-bg:                     $accordion-bg;
-$accordion-transition:                    $btn-transition, border-radius .15s ease;
-$accordion-button-active-bg:              tint-color($component-active-bg, 90%);
-$accordion-button-active-color:           shade-color($primary, 10%);
-
-$accordion-button-focus-border-color:     $input-focus-border-color;
-$accordion-button-focus-box-shadow:       $btn-focus-box-shadow;
-
-$accordion-icon-width:                    1.25rem;
-$accordion-icon-color:                    $accordion-color;
-$accordion-icon-active-color:             $accordion-button-active-color;
-$accordion-icon-transition:               transform .2s ease-in-out;
-$accordion-icon-transform:                rotate(-180deg);
-*/
+$primary: #f5a425;
+$bg-primary: #f5a425;
 
 //@import "../node_modules/bootstrap/scss/bootstrap";
 @import "bootstrap/scss/bootstrap";
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
 
