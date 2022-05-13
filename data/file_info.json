@@ -2,6 +2,11 @@
     "video": [
         {},
         {
+            "title": "Construction Technology Development in Korea - Case Study -",
+            "name": "Cho, Jung-Keun",
+            "belong": "Korea Institute of Civil Engineering and Building Technology"
+        },
+        {
             "title": "History of Construction Code in Korea",
             "name": "Kwon, O-Chel",
             "belong": "Daelim University College & Architecture Engineering Department"
@@ -12,14 +17,14 @@
             "belong": "Korea Conformity Laboratories"
         },
         {
-            "title": "Architecture in Uzbekistan from the Point of View of a Korean Architect",
+            "title": "(Case) UBC Practical Application Problems and Improvement Directions",
             "name": "Kim, Tae-Woo",
             "belong": "Korea Institute of Building Construction and Building Technology"
         },
         {
-            "title": "Quality Management Regulations and Quality Management Test for Construction Work Quality Management",
-            "name": "Kim, Ho-jin",
-            "belong": "Korea Testing & Research Institute"
+            "title": "Establishing Process of National Standard System and Role of System Developer",
+            "name": "Lee, Wan-Jae",
+            "belong": "Korea Institute of Civil Engineering and Building Technology"
         },
         {
             "title": "Eco-friendly Zero Energy Building Environment and Utility System Technology",
@@ -37,19 +42,14 @@
             "belong": "Passive House Institute Korea"
         },
         {
-            "title": "Establishing Process of National Standard System and Role of System Developer",
-            "name": "Lee, Wan-Jae",
-            "belong": "Korea Institute of Civil Engineering and Building Technology"
-        },
-        {
             "title": "BIM & Smart Construction - Technologies for Tracking the Construction Process and Problem Identification at the Early Stages of Construction",
             "name": "Lee, Jin-Gang",
             "belong": "Sunmoon University"
         },
         {
-            "title": "Construction Technology Development in Korea - Case Study -",
-            "name": "Cho, Jung-Keun",
-            "belong": "Korea Institute of Civil Engineering and Building Technology"
+            "title": "Quality Management Regulations and Quality Management Test for Construction Work Quality Management",
+            "name": "Kim, Ho-jin",
+            "belong": "Korea Testing & Research Institute"
         }
     ]
 }
