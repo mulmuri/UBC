@@ -72,27 +72,30 @@ body {
   background-color: black;
   display: block;
   margin: auto;
+  margin-bottom: 20px;
 }
 
-.course-box .course-body .attachment-section {
+.course-box .course-body .download-section {
+  margin: 20px;
+}
+
+.course-box .course-body .download-section .download-item {
   text-decoration: none;
   color: #f5a425;
   font-weight: bold;
-  margin: 30px;
+  margin: 50px;
 }
 
 .course-box .course-body .horizonal-line {
   border-top: 1px solid white;
+  margin: 0px;
   margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 .course-box .course-body .content-section {
   display: block;
-  padding-top: 20px;
-  padding-bottom: 50px;
+  margin-top: 50px;
+  padding-bottom: 80px;
 }
 
 .course-box .course-body .content-section > div {

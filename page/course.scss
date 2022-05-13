@@ -65,27 +65,30 @@ body {
             background-color: black;
             display: block;
             margin: auto;
+            margin-bottom: 20px;
         }
 
-        .attachment-section {
-            text-decoration : none;
-            color: #f5a425;
-            font-weight: bold;
-            margin: 30px;
+        .download-section {
+            margin: 20px;
+
+            .download-item {
+                text-decoration : none;
+                color: #f5a425;
+                font-weight: bold;
+                margin: 50px;
+            }
         }
 
         .horizonal-line {
             border-top: 1px solid white;
+            margin: 0px;
             margin-left: 5px;
-            margin-right: 5px;
-            margin-top: 15px;
-            margin-bottom: 15px;
         }
 
         .content-section {
             display: block;
-            padding-top: 20px;
-            padding-bottom: 50px;
+            margin-top: 50px;
+            padding-bottom: 80px;
 
             & > div {
                 margin-left: 30px;
