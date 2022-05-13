@@ -8,11 +8,14 @@ const commentInfo = commentObj.read();
 
 router.get('/', function(request, response) {
     var courseNo = request.session.courseNo;
+
     request.session.courseNo = 0;
-    response.render('course', {
-        file_info,
-        commentInfo,
-        courseNo: courseNo
+    request.session.save(function() {
+        response.render('course', {
+            file_info,
+            commentInfo,
+            courseNo: courseNo
+        })
     })
 })
 
