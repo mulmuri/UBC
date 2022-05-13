@@ -11,8 +11,11 @@ router.post('/create/:courseNo/:parentNo', function(request, response) {
     var content = request.body.content;
     
     comment.create(courseNo, parentNo, author, content);
+
     request.session.courseNo = Number(courseNo);
-    response.redirect('/');
+    request.session.save(function() {
+        response.redirect('/');
+    });
 });
 
 router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response) {
@@ -22,9 +25,10 @@ router.post('/update/:courseNo/:commentNo/:parentNo', function(request, response
     var author = request.session.username;
     var content = request.body.content;
 
-    comment.update(courseNo, commentNo, parentNo, author, content);
     request.session.courseNo = Number(courseNo);
-    response.redirect('/');
+    request.session.save(function() {
+        response.redirect('/');
+    });
 });
 
 router.post('/delete/:courseNo/:commentNo/:parentNo', function(request, response) {
@@ -34,9 +38,11 @@ router.post('/delete/:courseNo/:commentNo/:parentNo', function(request, response
     var author = request.session.username;
 
     comment.delete(courseNo, commentNo, parentNo, author);
-    console.log(courseNo)
+
     request.session.courseNo = Number(courseNo);
-    response.redirect('/');
+    request.session.save(function() {
+        response.redirect('/');
+    });
 });
 
 
