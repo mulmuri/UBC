@@ -155,7 +155,7 @@
             setTimeout(function() {
                 var targetNo = <%=courseNo%>
                 if (targetNo == 0) return;
-                document.getElementsByClassName('course-box-tab')[targetNo+1].click();
+                document.getElementsByClassName('course-box-tab')[targetNo-1].click();
             }, 300)
         }
 
