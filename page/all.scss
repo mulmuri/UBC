@@ -85,7 +85,9 @@ body {
 
 
 #main-footer {
-    height: 100px;
+    height: 80px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     border-top: 1px solid white;
     //background-color: rgba(22,34,57,0.99);
     background-color: #DCDCDC                       ;
@@ -93,12 +95,11 @@ body {
     text-align: center;
     
     .logo {
-        height: 80px;
-        width: 80;
+        height: 60px;
         margin-right: 5px;
         margin-left: 5px;
 
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: 420px) {
             & {
                 height: 0px;
                 width: 0px;
