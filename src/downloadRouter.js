@@ -13,6 +13,8 @@ router.get('/download/:lectureNo/:filetype', function(request, response) {
     var lectureNo = request.params.lectureNo;
     var filetype = request.params.filetype;
     var extensionName = getExtensionName[filetype]
+
+    if (fyletype == "video")
     
     response.download(`data/${filetype}/UBC ${lectureNo} - ${file_info.video[lectureNo].title}.${extensionName}`);
 })
