@@ -81,9 +81,10 @@ body {
 
 .course-box .course-body .download-section .download-item {
   text-decoration: none;
+  display: block;
   color: #f5a425;
   font-weight: bold;
-  margin: 50px;
+  margin: 10px;
 }
 
 .course-box .course-body .horizonal-line {
