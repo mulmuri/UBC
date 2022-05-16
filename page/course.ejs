@@ -28,10 +28,11 @@
         <div class="course-box container">
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <% for (var i=1; i<=file_info.video.length-1; i++) { %>
+                <% if (file_info.video[i].prepared == "true") { %>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-heading<%=i%>">
                         <button class="accordion-button collapsed shadow-none course-box-tab" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<%=i%>" aria-expanded="false" aria-controls="flush-collapse<%=i%>"
-                            onclick="streamVideo(<%=i%>); scrollToCard(<%=i%>);">
+                            onclick="streamVideo(<%=i%>); scrollToCard( accum[<%=i%>]);">
                             <div class="course-header w-90">
                                 <div class="first-line">
                                     <span class="header-title"><%= file_info.video[i].title %></span>
@@ -169,6 +170,7 @@
                     </div>
                 </div>
                 <% } %>
+                <% } %>
             </div>
         </div>
     </div>
@@ -178,10 +180,11 @@
     <script src="./script/commentManager.js"></script>
     <script src="./script/scrollToggler.js"></script>
     <script>
+        accum = [0, 0, 1, 2, 2, 3, 4, 5, 6, 7, 8];
         function setFocusFunction() {
-            console.log(<%=courseNo%>)
             setTimeout(function() {
-                var targetNo = <%=courseNo%>
+                var targetNo = accum[<%= courseNo %>]
+                console.log(targetNo)
                 if (targetNo == 0) return;
                 document.getElementsByClassName('course-box-tab')[targetNo-1].click();
             }, 300)
